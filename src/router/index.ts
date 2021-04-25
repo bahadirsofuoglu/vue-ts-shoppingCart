@@ -7,10 +7,19 @@ Vue.use(VueRouter);
 const routes: Array<RouteConfig> = [
   {
     path: "/",
-    name: "Home",
+    name: "index",
     component: () =>
-    import(/* webpackChunkName: "about" */ "../views/Home.vue"),
-  }
+    import(/* webpackChunkName: "about" */ "../layout/index.vue"),
+    children: [
+      {
+        path: "/",
+        name: "Home",
+        component: () =>
+        import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+      }
+    ]
+  },
+ 
 ];
 
 const router = new VueRouter({

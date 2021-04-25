@@ -1,3 +1,3 @@
 <template>
-  <b-button type="is-info">Primary</b-button>
+  <b-button type="is-danger">Primary</b-button>
 </template>
