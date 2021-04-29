@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar />
+    <AppNavbar />
     <div style="margin-top:50px">
       <router-view />
     </div>
@@ -9,13 +9,21 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import navbar from '@/layout/navbar.vue'
+import AppNavbar from '@/components/AppNavbar.vue'
 
 @Component({
   components: {
-    navbar
+    AppNavbar
   }
 })
 export default class Home extends Vue {}
 </script>
-<style lang="scss" scoped></style>
+
+<style lang="scss">
+html,
+body {
+  position: absolute;
+  right: 7%;
+  left: 7%;
+}
+</style>

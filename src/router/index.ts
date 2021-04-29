@@ -9,13 +9,13 @@ const routes: Array<RouteConfig> = [
     path: "/",
     name: "index",
     component: () =>
-    import(/* webpackChunkName: "about" */ "../layout/index.vue"),
+    import("../views/Index.vue"),
     children: [
       {
         path: "/",
         name: "Home",
         component: () =>
-        import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+        import("../views/Home.vue"),
       }
     ]
   },
