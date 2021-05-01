@@ -8,7 +8,10 @@
     <div class="card-content">
       <b-image :src="src" alt="A random image" ratio="6by4"></b-image>
     </div>
-    <footer class="card-footer" center>
+    <footer class="card-footer" center v-if="$slots.footerss">
+      <slot name="footerss" />
+    </footer>
+    <!--  <footer class="card-footer" center>
       <AppButton
         class="card-footer-item"
         buttonLabel="Add To Cart"
@@ -16,7 +19,7 @@
         type="outline"
         size="small"
       />
-    </footer>
+    </footer> -->
   </div>
 </template>
 <script lang="ts">
