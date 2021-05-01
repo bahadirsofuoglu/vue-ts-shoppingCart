@@ -5,7 +5,7 @@
     :icon-left="icon"
     v-bind="$attrs"
     @click="$emit('click')"
-    >{{ cartLabel ? cartLabel : buttonlabel }}</b-button
+    >{{ label }}</b-button
   >
 </template>
 <script lang="ts">
@@ -18,5 +18,12 @@ export default class Home extends Vue {
   @Prop({ default: 'danger' }) type!: string
   @Prop({ default: 'medium' }) size!: string
   @Prop() icon!: string
+
+  get label (): any {
+    if (this.cartLabel) {
+      return this.cartLabel
+    }
+    return this.buttonLabel
+  }
 }
 </script>

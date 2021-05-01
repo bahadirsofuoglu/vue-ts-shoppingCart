@@ -1,5 +1,5 @@
 <template>
-  <b-navbar type="is-light" spaced>
+  <b-navbar type="is-light" spaced style="margin-top:30px">
     <template #brand>
       <b-navbar-item tag="router-link" :to="{ path: '/' }"> </b-navbar-item>
     </template>
@@ -22,16 +22,19 @@
 
     <template #end>
       <b-navbar-item tag="div">
-        <div class="buttons">
-          <a class="button is-danger">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button ">
-            Log in
-          </a>
-        </div>
+        <AppButton cartLabel="4" icon="cart" />
       </b-navbar-item>
     </template>
   </b-navbar>
 </template>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import AppButton from '@/components/AppButton.vue'
+@Component({
+  components: {
+    AppButton
+  }
+})
+export default class AppNavbar extends Vue {}
+</script>
 <style lang="scss" scoped></style>

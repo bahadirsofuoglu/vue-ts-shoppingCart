@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <AppButton />
-
     <div style="display:flex;flex-wrap: wrap;margin-left:30px">
       <AppProductCard
         v-for="item in 60"
@@ -14,11 +12,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import AppButton from '@/components/AppButton.vue'
+
 import AppProductCard from '@/components/AppProductCard.vue'
 @Component({
   components: {
-    AppButton,
     AppProductCard
   }
 })
