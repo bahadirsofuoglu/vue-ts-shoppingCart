@@ -16,7 +16,7 @@ import AppNavbar from '@/components/AppNavbar.vue'
     AppNavbar
   }
 })
-export default class Home extends Vue {}
+export default class Index extends Vue {}
 </script>
 
 <style lang="scss">

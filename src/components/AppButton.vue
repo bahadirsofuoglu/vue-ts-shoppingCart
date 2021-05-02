@@ -12,7 +12,7 @@
 import { Prop, Component, Vue } from 'vue-property-decorator'
 
 @Component
-export default class Home extends Vue {
+export default class AppButton extends Vue {
   @Prop() buttonLabel!: string
   @Prop() cartLabel!: number
   @Prop({ default: 'danger' }) type!: string

@@ -1,22 +1,23 @@
 <template>
   <div class="home">
     <div style="display:flex;flex-wrap: wrap;margin-left:30px">
-      <AppProductCard
+      <appProductCard
         v-for="productItem in productItems"
-        :key="productItem"
+        :key="productItem.title"
+        :title="productItem.title"
+        :src="productItem.image"
         style="margin-left:15px; margin-top:30px"
       >
         <template v-slot:footer>
-          <AppButton
+          <appButton
             buttonLabel="Add To Cart"
             icon="plus"
             type="outline"
             size="small"
             class="card-footer-item"
-            @click="clickMe"
           />
         </template>
-      </AppProductCard>
+      </appProductCard>
     </div>
   </div>
 </template>
@@ -27,20 +28,21 @@ import AppButton from '@/components/AppButton.vue'
 import AppProductCard from '@/components/AppProductCard.vue'
 import { namespace } from 'vuex-class'
 const products = namespace('products')
+import { Product } from '@/interfaces/Product'
+
 @Component({
+  name: 'Home',
   components: {
-    AppProductCard,
-    AppButton
+    AppButton,
+    AppProductCard
   }
 })
-@Component
 export default class Home extends Vue {
-  mounted () {
-    this.getProductItems()
-    console.log(this.productItems)
+  async mounted () {
+    await this.getProductItems()
   }
   @products.State
-  public productItems!: Array<any>
+  public productItems!: Array<Product>
   @products.Action
   public getProductItems!: () => void
 }

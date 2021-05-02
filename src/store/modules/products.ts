@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Product } from '@/interfaces/Product'
 @Module({ namespaced: true})
 class Products extends VuexModule {
-  public  productItem: Array<Product> = []
+  public  productItems: Array<Product> = []
   public product: Product = {
     category: '',
     id: 0,
@@ -14,12 +14,11 @@ class Products extends VuexModule {
   }
   @Mutation
   public updateProductItems(data: Array<Product>): void {
-    this.productItem = data
-    console.log( this.productItem)
+    this.productItems = [...data]
   }
   @Action
   public getProductItems (): void{
-    axios.get('https://fakestoreapi.com/products').then((response: any) => {
+    axios.get('https://fakestoreapi.com/products').then((response) => {
     this.context.commit('updateProductItems', response.data)
   });
   }
