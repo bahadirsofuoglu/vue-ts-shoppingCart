@@ -25,6 +25,8 @@
 import { Component, Vue } from 'vue-property-decorator'
 import AppButton from '@/components/AppButton.vue'
 import AppProductCard from '@/components/AppProductCard.vue'
+import { namespace } from 'vuex-class'
+const products = namespace('products')
 @Component({
   components: {
     AppProductCard,
@@ -35,5 +37,13 @@ export default class Home extends Vue {
   public clickMe (): void {
     console.log('clicked')
   }
+  @products.State
+  public name!: string
+
+  @products.Getter
+  public nameUpperCase!: string
+
+  @products.Action
+  public getProducts!: (newName: string) => void
 }
 </script>
