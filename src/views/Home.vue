@@ -2,8 +2,8 @@
   <div class="home">
     <div style="display:flex;flex-wrap: wrap;margin-left:30px">
       <AppProductCard
-        v-for="item in 60"
-        :key="item"
+        v-for="productItem in productItems"
+        :key="productItem"
         style="margin-left:15px; margin-top:30px"
       >
         <template v-slot:footer>
@@ -33,17 +33,15 @@ const products = namespace('products')
     AppButton
   }
 })
+@Component
 export default class Home extends Vue {
-  public clickMe (): void {
-    console.log('clicked')
+  mounted () {
+    this.getProductItems()
+    console.log(this.productItems)
   }
   @products.State
-  public name!: string
-
-  @products.Getter
-  public nameUpperCase!: string
-
+  public productItems!: Array<any>
   @products.Action
-  public getProducts!: (newName: string) => void
+  public getProductItems!: () => void
 }
 </script>
