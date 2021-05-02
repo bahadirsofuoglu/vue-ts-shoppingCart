@@ -38,8 +38,8 @@ import { Product } from '@/interfaces/Product'
   }
 })
 export default class Home extends Vue {
-  async mounted () {
-    await this.getProductItems()
+  mounted () {
+    this.getProductItems()
   }
   @products.State
   public productItems!: Array<Product>

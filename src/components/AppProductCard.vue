@@ -21,3 +21,10 @@ export default class AppProductCard extends Vue {
   @Prop() src!: string
 }
 </script>
+<style scoped>
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+</style>
