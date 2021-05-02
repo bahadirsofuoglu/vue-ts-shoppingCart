@@ -6,7 +6,7 @@
         :key="item"
         style="margin-left:15px; margin-top:30px"
       >
-        <template v-slot:footerss>
+        <template v-slot:footer>
           <AppButton
             buttonLabel="Add To Cart"
             icon="plus"
