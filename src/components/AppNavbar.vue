@@ -22,7 +22,7 @@
 
     <template #end>
       <b-navbar-item tag="div">
-        <AppButton cartLabel="4" icon="cart" />
+        <AppButton :cartLabel="quentity" icon="cart" />
       </b-navbar-item>
     </template>
   </b-navbar>
@@ -30,11 +30,16 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import AppButton from '@/components/AppButton.vue'
+import { namespace } from 'vuex-class'
+const carts = namespace('cardQuantity')
 @Component({
   components: {
     AppButton
   }
 })
-export default class AppNavbar extends Vue {}
+export default class AppNavbar extends Vue {
+  @carts.State
+  public quentity!: number
+}
 </script>
 <style lang="scss" scoped></style>

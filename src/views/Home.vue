@@ -15,6 +15,7 @@
             type="outline"
             size="small"
             class="card-footer-item"
+            @click="increaseButton"
           />
         </template>
       </appProductCard>
@@ -28,6 +29,7 @@ import AppButton from '@/components/AppButton.vue'
 import AppProductCard from '@/components/AppProductCard.vue'
 import { namespace } from 'vuex-class'
 const products = namespace('products')
+const carts = namespace('cardQuantity')
 import { Product } from '@/interfaces/Product'
 
 @Component({
@@ -41,9 +43,17 @@ export default class Home extends Vue {
   mounted () {
     this.getProductItems()
   }
+
+  public increaseButton (): void {
+    this.increase()
+  }
   @products.State
   public productItems!: Array<Product>
+  @carts.State
+  public quentity!: number
   @products.Action
   public getProductItems!: () => void
+  @carts.Action
+  public increase!: () => void
 }
 </script>
