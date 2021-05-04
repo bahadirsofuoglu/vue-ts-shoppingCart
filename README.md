@@ -1,4 +1,4 @@
-# ts-ecommerce-sample
+# vue-ts-shoppingCart
 
 ## Project setup
 ```
